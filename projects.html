@@ -1,0 +1,18 @@
+---
+layout: default
+title: Projects
+---
+
+<div id="home">
+	{% for section in site.data.projects %}
+		<h2>{{section[0]}}</h2>
+	  <ul class="posts">
+	  	{% for project in section[1] %}
+		  <li class="project">
+		  	&raquo; <a href="{{ project.link }}" class="project-title">{{ project.title }}</a>
+		  	<span class="project-description">{{project.description}}</span>
+		  </li>
+	  	{% endfor %}
+	  </ul>
+	{% endfor %}
+</div>
