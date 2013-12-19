@@ -127,6 +127,10 @@ a:visited { color: #a0a; }
 /*
 /*****************************************************************************/
 
+.post {
+  margin-bottom: 100px;
+}
+
 /* standard */
 .post pre {
   border: 1px solid #ddd;
