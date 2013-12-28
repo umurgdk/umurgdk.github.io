@@ -299,3 +299,7 @@ def start(_type, _args) do
   Tutorial.Supervisor.start_link
 end
 ```
+
+If everything looks ok run the project again with ```mix run --no-halt``` I've prepared a simple [web page for testing](http://jsfiddle.net/EAVvQ/24/) our websocket handler, we will add our html files later in our project. If everything goes right, you should be able to see ```> CONNECTED``` message on jsfidddle.
+
+![Jsfiddle page screenshot for websocket demo]({{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png)
