@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'unlearn2';
+  src: url('http://fontsforweb.com/public/fonts/1004/unlearn2.eot');
+  src: local('unlearn2'), url('http://fontsforweb.com/public/fonts/1004/unlearn2.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'BITMAPPER';
+  src: url('fonts/BITMO___.eot');
+  src: local('☺'), url('fonts/BITMO___.woff') format('woff'), url('fonts/BITMO___.ttf') format('truetype'), url('fonts/BITMO___.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "8bitoperator";
+  src: url("fonts/8bitoperator_jve.eot?") format("eot"), url("fonts/8bitoperator_jve.woff") format("woff"), url("fonts/8bitoperator_jve.ttf") format("truetype"), url("fonts/8bitoperator_jve.svg#8bitoperator-JVE") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.bitmapper {
+  font-family: 'bitmapper' !important;
+}
+.unlearn {
+  font-family: 'unlearn2' !important;
+}
+.bitoperator {
+  font-family: '8bitoperator' !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+#page-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -225px;
+  width: 750px;
+  height: 455px;
+}
+#side-panel {
+  float: left;
+  width: 150px;
+  height: inherit;
+  text-align: right;
+}
+#side-panel #profile-box #fullname {
+  margin-top: 5px;
+  display: block;
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+}
+#side-panel #primary-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+}
+#side-panel #primary-menu ul li {
+  font-size: 9px;
+  margin-bottom: 10px;
+}
+#side-panel #primary-menu ul li a {
+  color: #000;
+  text-decoration: none;
+  -webkit-font-smoothing: none;
+}
+#side-panel #primary-menu ul li a:hover,
+#side-panel #primary-menu ul li a.active {
+  color: #f00;
+}
+#content-wrapper {
+  float: right;
+  margin-left: 70px;
+  width: 530px;
+  height: inherit;
+}
+#content-wrapper.blog-read-page {
+  -webkit-font-smoothing: none;
+}
+#content-wrapper.blog-read-page h1.title {
+  margin-top: 3px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #f00;
+}
+#content-wrapper.portfolio-page {
+  -webkit-font-smoothing: none;
+}
+#content-wrapper.portfolio-page .categories-menu ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+#content-wrapper.portfolio-page .categories-menu ul li {
+  display: inline-block;
+}
+#content-wrapper.portfolio-page .categories-menu ul li a {
+  color: #000;
+  text-decoration: none;
+}
+#content-wrapper.portfolio-page .categories-menu ul li a:hover,
+#content-wrapper.portfolio-page .categories-menu ul li a.active {
+  color: #f00;
+  border-bottom: 1px dashed #f00;
+}
+#content-wrapper.portfolio-page .portfolio-item .title {
+  margin: 0;
+  margin-top: 25px;
+  color: #f00;
+  font-size: 22px;
+}
+#content-wrapper.portfolio-page .portfolio-item .item-body {
+  margin-top: 25px;
+  background: #000;
+  height: 360px;
+  padding: 20px;
+}
+#content-wrapper.portfolio-page .portfolio-item .item-body .portfolio-visual {
+  overflow: hidden;
+  height: 320px;
+  line-height: 320px;
+}
+#content-wrapper.portfolio-page .portfolio-item .item-body .portfolio-visual img {
+  width: 100%;
+}
+#content-wrapper.portfolio-page .portfolio-item .item-body .portfolio-footer {
+  margin-top: 10px;
+  height: 30px;
+}
+#content-wrapper.blog-list-page .blog-teaser {
+  margin-bottom: 35px;
+}
+#content-wrapper.blog-list-page .blog-teaser h2.title {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  -webkit-font-smoothing: none;
+}
+#content-wrapper.blog-list-page .blog-teaser h2.title a {
+  color: #000;
+  text-decoration: none;
+}
+#content-wrapper.blog-list-page .blog-teaser:hover h2.title a {
+  color: #f00;
+}
+#content-wrapper.blog-list-page .blog-teaser .teaser {
+  font-size: 16px;
+  -webkit-font-smoothing: none;
+  color: #9d9d9d;
+  position: relative;
+}
+#content-wrapper.blog-list-page .blog-teaser .teaser a.teaser-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
