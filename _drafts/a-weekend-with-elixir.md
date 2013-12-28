@@ -250,4 +250,52 @@ Definition of websocket_terminate is just like http_handler's terminate. It just
 def websocket_terminate(_reason, _req, _state), do: :ok
 ```
 
+Our websocket handler behaves like an **echo server**. When the message arrives to our handler it will send it back as it is.
 
+```elixir
+#file lib/tutorial/websocket_handler.ex
+def websocket_handle({:text, msg}, req, state) do
+  {:reply, {:text, msg}, req, state}
+end
+```
+
+websocket_handle's first definition only accepts **text** messages as you can see on pattern matching. This handle function will be called on every text message comes from client (keep in mind our state and request will be shared between handle calls. Because we don't close the connection until we want or something wrong happened). websocket_handle returns ```{:reply, {:text, msg}, req, state}```. If you are returning ```:reply```, a message will be sent to client. If you don't want to send a message back you can use ```{:ok, req, state}```. If you wondering what are the other possible returning values are you can read from [cowboy's source code](https://github.com/extend/cowboy/blob/master/src/cowboy_websocket_handler.erl#L69) easily, and see the other reply formats at [here](https://github.com/extend/cowboy/blob/master/src/cowboy_websocket.erl#L35).
+
+websocket_handle's second definition (pattern matching) is just a fallback mechanism for other type of message to possible come from client. We just say ```:ok``` and ignore them.
+
+```elixir
+#file lib/tutorial/websocket_handler.ex
+def websocket_handle(_data, req, state) do
+  {:ok, req, state}
+end
+```
+
+Conwoy automatically creates a new process for each request. When using websockets our connection keeps alive so our **process keeps alive** this means we can send message from other erlang processes like ***chat_server*** we build soon. We can handle such messages with **websocket_info/** (keep in mind these messages are different from messages which sent by user). We just ignore these messages for a now, we return back after implemented chat server.
+
+```elixir
+#file lib/tutorial/websocket_handler.ex
+def websocket_info(msg, req, state) do
+  {:ok, req, state}
+end
+```
+
+Our websocket handler is ready to use, let's add it to cowboy's routes.
+
+```elixir
+#file lib/tutorial.ex
+def start(_type, _args) do
+  dispatch = :cowboy_router.compile([
+    # {URIHost, list({URIPath, Handler, Opts})}
+    {:_, [
+      {"/", Tutorial.HelloWorldHandler, []},
+      {"/socket", Tutorial.WebsocketHandler, []}
+    ]}
+  ])
+
+  {:ok, _} = :cowboy.start_http(:http, 100,
+                                [port: 8080],
+                                [env: [dispatch: dispatch]])
+
+  Tutorial.Supervisor.start_link
+end
+```
