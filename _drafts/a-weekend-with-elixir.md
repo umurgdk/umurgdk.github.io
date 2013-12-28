@@ -300,6 +300,8 @@ def start(_type, _args) do
 end
 ```
 
-If everything looks ok run the project again with ```mix run --no-halt``` I've prepared a simple [web page for testing](http://jsfiddle.net/EAVvQ/24/) our websocket handler, we will add our html files later in our project. If everything goes right, you should be able to see ```> CONNECTED``` message on jsfidddle.
+If everything looks ok run the project again with ```mix run --no-halt``` I've prepared a simple [web page for testing](http://jsfiddle.net/EAVvQ/25/) our websocket handler, we will add our html files later in our project. If everything goes right, you should be able to see ```> CONNECTED``` message on jsfidddle.
 
-![Jsfiddle page screenshot for websocket demo]({{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png)
+<a href="{{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png" class="fancy" title="Jsfiddle screen shot for demo page!">
+  <img src="{{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png" alt="Jsfiddle screen shot">
+</a>
