@@ -261,7 +261,7 @@ end
 
 websocket_handle's first definition only accepts **text** messages as you can see on pattern matching. This handle function will be called on every text message comes from client (keep in mind our state and request will be shared between handle calls. Because we don't close the connection until we want or something wrong happened). websocket_handle returns ```{:reply, {:text, msg}, req, state}```. If you are returning ```:reply```, a message will be sent to client. If you don't want to send a message back you can use ```{:ok, req, state}```. If you wondering what are the other possible returning values are you can read from [cowboy's source code](https://github.com/extend/cowboy/blob/master/src/cowboy_websocket_handler.erl#L69) easily, and see the other reply formats at [here](https://github.com/extend/cowboy/blob/master/src/cowboy_websocket.erl#L35).
 
-websocket_handle's second definition (pattern matching) is just a fallback mechanism for other type of message to possible come from client. We just say ```:ok``` and ignore them.
+websocket_handle's second definition (pattern matching) is just a fallback mechanism for other type of messages which possible to come from client. We just say ```:ok``` and ignore them.
 
 ```elixir
 #file lib/tutorial/websocket_handler.ex
@@ -270,7 +270,7 @@ def websocket_handle(_data, req, state) do
 end
 ```
 
-Conwoy automatically creates a new process for each request. When using websockets our connection keeps alive so our **process keeps alive** this means we can send message from other erlang processes like ***chat_server*** we build soon. We can handle such messages with **websocket_info/** (keep in mind these messages are different from messages which sent by user). We just ignore these messages for a now, we return back after implemented chat server.
+Conwoy automatically creates new processes for each request. When using websockets our connection keeps alive so our **process keeps alive** this means we can send message from other erlang processes like ***chat_server*** we build soon. We can handle such messages with **websocket_info/** (keep in mind these messages are different from messages which sent by user). We just ignore these messages for a now, we return back after implemented chat server.
 
 ```elixir
 #file lib/tutorial/websocket_handler.ex
@@ -305,3 +305,10 @@ If everything looks ok run the project again with ```mix run --no-halt``` I've p
 <a href="{{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png" class="fancy" title="Jsfiddle screen shot for demo page!">
   <img src="{{site.url}}/assets/a-weekend-with-elixir/js-fiddle-first-ss.png" alt="Jsfiddle screen shot">
 </a>
+
+If you enter some message to input box end press enter you will see our server replied it with same exact message you just sent. At this moment we've built the interaction between client and server over websockets. After now we start to shape our chat server with multiple rooms, joining and leaving functionalities and broadcasting messages to other users who sharing same room with each other.
+
+## Join, Talk, Leave! Is there anybody out there?
+
+Our clients will send three different messages; ```join```, ```talk```, and ```leave```, of course *they can send any type of messages* but at least we will considere about three of them. These three special messages causing state to be changed and inform the necessary users about the action. But how do our socket handler functions know other clients? Is there any way to send messages from our handler to others? I don't know maybe the answer can be "yes" but, in my opinion they should be totally separated from each other and they don't need to know anything about the other ones. We can solve this problem with building a simple central server to keep connected clients' list and also for transfer the messages between them. We will keep the list separated by each room. There is no need to transfer messages between different rooms this makes things easier.
+
