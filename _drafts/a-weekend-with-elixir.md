@@ -3,15 +3,15 @@ layout: post
 title: A Weekend With Elixir
 ---
 
-For a long time i've been wanting to dive into elixir. Finally found some time and write some code. First, if you don't know [elixir](http://www.elixir-lang.org) is a programming language which compiles to same erlang vm bytecode. Just think like how any other JVM languages compiles into jvm bytecode. And this means you have full access to erlang's environment. 
+I've been wishing to dive into Elixir. Finally I found some time and wrote some code.  [Elixir](http://www.elixir-lang.org) is a programming language which compiles into same Erlang vm bytecode. For instance how JVM languages compiles into jvm bytecode. That means you could fully utilize Erlang's ecosystem. 
 <!-- Elixir and erlang share same semantics because of that reading erlang documents or using any erlang libraries doesn't hurt you. -->
 
-After a weekend i have to say **it was awesome**. I choose to make a chat server application as a learning project. I thought it shouldn't be much hard to write. And it shouldn't hehe :P
+I would say that **brilliant it was**. I choose to make a chat server application as a learning project. I thought it will not have been much hard to write. And it wasn't hehe :P
 
-**Let's make a chat server in elixir together.**
+**Let's make a chat server in Elixir together.**
 
 ## Installation
-You need to install [erlang](http://www.erlang.org/) programming language first. And then you can install elixir. There is **homebrew** packages for both of them if you are using **OS X**. I will continue with os x, it shouldn't be harder to install both of them on neighter linux nor windows.
+At first step you need to install [Erlang](http://www.erlang.org/) environment then, you can install the Elixir. There are **Homebrew** packages to use both of them if you use **OS X**. I will continue with os x, it should be easy to install on eihter linux or windows.
 
 ```
 # brew installs erlang automatically as a dependency
@@ -20,7 +20,7 @@ $ brew install elixir
 
 ## Creating a project with mix
 
-Elixir comes with a handy toolkit named **mix**. It can create projects, build and run them for you and even manage the dependencies. You will love mix after a while. Let's create a project named **tutorial** with mix and see what it creates and try to describe them.
+Elixir submits a handy toolkit named **mix**. You can use it for creating project templates, building and running them and even to manage the dependencies. Let's create a project named **tutorial** with mix and see what it creates and try to describe them.
 
 ***!!! name of the project is important project's root directory's name and the project configuration should match.***
 
